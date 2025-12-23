@@ -126,10 +126,14 @@ function displayGuess(guess) {
         { key: 'treatment', label: 'Treatment' }
     ];
     
-    attributes.forEach(attr => {
+    attributes.forEach((attr, index) => {
         const cell = document.createElement('div');
         cell.className = 'guess-cell';
         cell.textContent = guess[attr.key];
+        
+        // Add staggered reveal animation
+        cell.style.animationDelay = `${index * 0.1}s`;
+        cell.classList.add('cell-reveal');
         
         // Color coding
         if (guess[attr.key] === dailyMicroorganism[attr.key]) {
