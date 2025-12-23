@@ -176,9 +176,9 @@ h1 {
 }
 
 .guess-cell.incorrect {
-    background: #94a3b8;
+    background: #ef4444;
     color: white;
-    border-color: #64748b;
+    border-color: #dc2626;
 }
 
 .game-over {
