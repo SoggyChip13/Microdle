@@ -29,10 +29,52 @@ header {
     border-bottom: 3px solid #667eea;
 }
 
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.back-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #764ba2;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    justify-content: center;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+}
+
+.mode-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
 h1 {
     font-size: 3rem;
     color: #667eea;
-    margin-bottom: 10px;
+    margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -244,6 +286,26 @@ footer {
 
     .subtitle {
         font-size: 1rem;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo-title {
+        order: -1;
+    }
+
+    .back-link,
+    .mode-badge {
+        width: 100%;
+        text-align: center;
     }
 
     .attributes-header {
