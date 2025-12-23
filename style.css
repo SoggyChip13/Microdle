@@ -112,7 +112,7 @@ h1 {
 
 .attributes-header {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     gap: 10px;
     margin-bottom: 15px;
     padding: 0 10px;
@@ -136,7 +136,7 @@ h1 {
 
 .guess-row {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     gap: 10px;
     animation: slideIn 0.3s ease-out;
 }

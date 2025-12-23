@@ -117,10 +117,13 @@ function displayGuess(guess) {
     const attributes = [
         { key: 'name', label: 'Name' },
         { key: 'type', label: 'Type' },
-        { key: 'gramStain', label: 'Gram Stain' },
-        { key: 'shape', label: 'Shape' },
-        { key: 'oxygenReq', label: 'Oxygen Requirement' },
-        { key: 'disease', label: 'Disease' }
+        { key: 'cultureStain', label: 'Culture/Stain' },
+        { key: 'structure', label: 'Structure' },
+        { key: 'keyDiagnostics', label: 'Key Diagnostics' },
+        { key: 'intraExtra', label: 'Intra/Extra' },
+        { key: 'capsuleEnvelope', label: 'Capsule/Envelope' },
+        { key: 'siteHost', label: 'Site/Host(s)' },
+        { key: 'treatment', label: 'Treatment' }
     ];
     
     attributes.forEach(attr => {
