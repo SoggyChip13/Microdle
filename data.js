@@ -49,7 +49,7 @@ const microorganisms = [
         "type": "Bacteria",
         "cultureStain": "Gram, Sheep blood agar",
         "structure": "G(+), lancet-shaped diplococcus",
-        "keyDiagnostics": "Catalase(-), Alpha-hemolytic, Optochin-sensitive, ",
+        "keyDiagnostics": "Catalase(-), Alpha-hemolytic, Optochin-sensitive",
         "intraExtra": "Facultative Intracellular",
         "capsuleEnvelope": "Encapsulated",
         "siteHost": "GI (Respiratory)",
@@ -342,7 +342,7 @@ const microorganisms = [
         "treatment": "Fluoroquinolones, TMP-SMX"
     },
     {
-        "name": "Bordatella pertussis",
+        "name": "Bordetella pertussis",
         "type": "Bacteria",
         "cultureStain": "Gram, Regan-Lowe, Bordet-Gengou agar",
         "structure": "G(-), coccobacilli",
@@ -364,7 +364,7 @@ const microorganisms = [
         "treatment": "Amoxicillin, Ampicillin, \u00b1Clavulanic acid, Ceftriaxone"
     },
     {
-        "name": "Pseudomonas aerigunosa",
+        "name": "Pseudomonas aeruginosa",
         "type": "Bacteria",
         "cultureStain": "Gram, Cetrimide agar",
         "structure": "G(-), bacillus",
@@ -372,7 +372,7 @@ const microorganisms = [
         "intraExtra": "Facultative Intracellular",
         "capsuleEnvelope": "Encapsulated",
         "siteHost": "Soil, Water, Plants, Animals, Hospitals",
-        "treatment": "Piperacillin/Ceftazidime/Cefepime/Levofloxacillin/Aztreonam/Imipenem-Cilastin"
+        "treatment": "Piperacillin/Ceftazidime/Cefepime/Levofloxacin/Aztreonam/Imipenem-Cilastin"
     },
     {
         "name": "Burkholderia cepacia",
