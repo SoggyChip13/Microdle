@@ -276,15 +276,15 @@ footer {
     }
 
     .attributes-header {
-        grid-template-columns: repeat(2, 1fr);
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
 
-    .guess-row {
-        grid-template-columns: repeat(2, 1fr);
+    .attribute-label {
+        padding: 6px 2px;
     }
 
     .guess-cell {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+        padding: 8px 4px;
     }
 }
