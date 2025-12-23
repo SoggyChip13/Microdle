@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    min-height: 90vh;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #667eea;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #667eea;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.game-info {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.attempts {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.search-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 2px solid #667eea;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+}
+
+.dropdown.show {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-item:hover {
+    background: #f0f0f0;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.attributes-header {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+.attribute-label {
+    text-align: center;
+    font-weight: bold;
+    color: #667eea;
+    font-size: 0.9rem;
+    padding: 10px 5px;
+}
+
+.guesses-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+    min-height: 200px;
+}
+
+.guess-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.guess-cell {
+    background: #f0f0f0;
+    padding: 15px 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.guess-cell.correct {
+    background: #4ade80;
+    color: white;
+    border-color: #22c55e;
+}
+
+.guess-cell.partial {
+    background: #fbbf24;
+    color: white;
+    border-color: #f59e0b;
+}
+
+.guess-cell.incorrect {
+    background: #94a3b8;
+    color: white;
+    border-color: #64748b;
+}
+
+.game-over {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    color: white;
+    margin: 20px 0;
+}
+
+.game-over.hidden {
+    display: none;
+}
+
+.game-over h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.share-button {
+    background: white;
+    color: #667eea;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.2s;
+}
+
+.share-button:hover {
+    transform: scale(1.05);
+}
+
+.next-game {
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+    color: #666;
+}
+
+.hint {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .attributes-header {
+        grid-template-columns: repeat(3, 1fr);
+        font-size: 0.75rem;
+    }
+
+    .attribute-label {
+        font-size: 0.75rem;
+        padding: 8px 3px;
+    }
+
+    .guess-row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .guess-cell {
+        padding: 10px 5px;
+        font-size: 0.8rem;
+    }
+
+    .container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .attributes-header {
+        grid-template-columns: repeat(2, 1fr);
+        font-size: 0.7rem;
+    }
+
+    .guess-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .guess-cell {
+        font-size: 0.75rem;
+    }
+}

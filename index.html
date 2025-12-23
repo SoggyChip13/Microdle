@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microdle - Daily Microbiology Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🦠 Microdle</h1>
+            <p class="subtitle">Daily Microbiology Guessing Game</p>
+        </header>
+
+        <main>
+            <div class="game-info">
+                <p>Guess the microorganism of the day!</p>
+                <p class="attempts">Attempts: <span id="attempts">0</span></p>
+            </div>
+
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Type to search for a microorganism..."
+                    autocomplete="off"
+                >
+                <div id="dropdown" class="dropdown"></div>
+            </div>
+
+            <div class="attributes-header">
+                <div class="attribute-label">Name</div>
+                <div class="attribute-label">Type</div>
+                <div class="attribute-label">Gram Stain</div>
+                <div class="attribute-label">Shape</div>
+                <div class="attribute-label">Oxygen Requirement</div>
+                <div class="attribute-label">Disease</div>
+            </div>
+
+            <div id="guesses" class="guesses-container"></div>
+
+            <div id="gameOver" class="game-over hidden">
+                <h2 id="gameOverMessage"></h2>
+                <p id="correctAnswer"></p>
+                <button id="shareButton" class="share-button">Share Results 📋</button>
+                <p class="next-game">Next Microdle in: <span id="countdown"></span></p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ for medical students</p>
+            <p class="hint">Tip: Each color shows how close your guess is to the answer!</p>
+        </footer>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
