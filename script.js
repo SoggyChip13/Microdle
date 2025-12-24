@@ -1,13 +1,42 @@
+// Firebase Configuration
+// IMPORTANT: Replace these values with your actual Firebase credentials
+// Get them from: Firebase Console -> Project Settings -> Your apps -> Firebase SDK snippet
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "microdle-default-rtdb.firebaseapp.com",
+    databaseURL: "https://microdle-default-rtdb.firebaseio.com",
+    projectId: "microdle",
+    storageBucket: "microdle.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};
+
+// Initialize Firebase
+let database = null;
+let firebaseInitialized = false;
+
+try {
+    firebase.initializeApp(firebaseConfig);
+    database = firebase.database();
+    firebaseInitialized = true;
+    console.log('Firebase initialized successfully');
+} catch (error) {
+    console.error('Firebase initialization error:', error);
+    console.log('Counter will not work until Firebase is properly configured');
+}
+
 // Game state
 let dailyMicroorganism = null;
 let guessedMicroorganisms = [];
 let attempts = 0;
 let gameWon = false;
+let currentDateKey = '';
 
 // Initialize game
 function initGame() {
     // Get daily microorganism based on date
     dailyMicroorganism = getDailyMicroorganism();
+    currentDateKey = getTodayDateKey();
     
     // Setup event listeners
     const searchInput = document.getElementById('searchInput');
@@ -29,6 +58,61 @@ function initGame() {
     // Start countdown timer
     updateCountdown();
     setInterval(updateCountdown, 1000);
+    
+    // Initialize Firebase counter
+    initializeCounter();
+}
+
+// Get today's date as a key (YYYY-MM-DD format)
+function getTodayDateKey() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
+// Initialize the daily counter
+function initializeCounter() {
+    const playersCountElement = document.getElementById('playersCount');
+    
+    if (!firebaseInitialized || !database) {
+        playersCountElement.textContent = 'N/A';
+        playersCountElement.title = 'Firebase not configured';
+        return;
+    }
+    
+    const counterRef = database.ref('dailyWinners/' + currentDateKey);
+    
+    // Listen for changes to the counter
+    counterRef.on('value', (snapshot) => {
+        const count = snapshot.val() || 0;
+        playersCountElement.textContent = count;
+    }, (error) => {
+        console.error('Error reading counter:', error);
+        playersCountElement.textContent = 'Error';
+    });
+}
+
+// Increment the daily winner counter
+function incrementWinnerCounter() {
+    if (!firebaseInitialized || !database) {
+        console.log('Firebase not initialized, skipping counter increment');
+        return;
+    }
+    
+    const counterRef = database.ref('dailyWinners/' + currentDateKey);
+    
+    // Increment the counter atomically
+    counterRef.transaction((currentValue) => {
+        return (currentValue || 0) + 1;
+    }, (error, committed, snapshot) => {
+        if (error) {
+            console.error('Error incrementing counter:', error);
+        } else if (committed) {
+            console.log('Winner counter incremented successfully:', snapshot.val());
+        }
+    });
 }
 
 // Get daily microorganism based on date seed
@@ -166,6 +250,9 @@ function showGameOver(won) {
     
     if (won) {
         message.textContent = `🎉 Congratulations! You got it in ${attempts} ${attempts === 1 ? 'attempt' : 'attempts'}!`;
+        
+        // Increment the winner counter when player wins
+        incrementWinnerCounter();
     } else {
         message.textContent = '😔 Better luck next time!';
     }

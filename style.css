@@ -97,6 +97,17 @@ h1 {
     color: #667eea;
 }
 
+.players-count {
+    margin-top: 5px;
+    font-weight: bold;
+    color: #10b981;
+    font-size: 0.95rem;
+}
+
+.players-count span {
+    color: #059669;
+}
+
 .search-container {
     position: relative;
     max-width: 600px;
