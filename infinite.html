@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microdle - Infinite Mode</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <a href="index.html" class="back-link">← Back to Menu</a>
+                <div class="logo-title">
+                    <img src="logo.png" alt="Microdle Logo" class="logo">
+                    <h1>🦠 Microdle</h1>
+                </div>
+                <div class="mode-badge">Infinite Mode</div>
+            </div>
+            <p class="subtitle">Infinite Microbiology Practice</p>
+        </header>
+
+        <main>
+            <div class="game-info">
+                <p>Keep guessing! Test your knowledge endlessly!</p>
+                <p class="attempts">Attempts: <span id="attempts">0</span></p>
+                <p class="rounds">Round: <span id="roundNumber">1</span></p>
+            </div>
+
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Type to search for a microorganism..."
+                    autocomplete="off"
+                >
+                <div id="dropdown" class="dropdown"></div>
+            </div>
+
+            <div class="attributes-header">
+                <div class="attribute-label">Name</div>
+                <div class="attribute-label">Type</div>
+                <div class="attribute-label">Culture/Stain</div>
+                <div class="attribute-label">Structure</div>
+                <div class="attribute-label">Key Diagnostics</div>
+                <div class="attribute-label">Intra/Extra</div>
+                <div class="attribute-label">Capsule/Envelope</div>
+                <div class="attribute-label">Site/Host(s)</div>
+                <div class="attribute-label">Treatment</div>
+            </div>
+
+            <div id="guesses" class="guesses-container"></div>
+
+            <div id="gameOver" class="game-over hidden">
+                <h2 id="gameOverMessage"></h2>
+                <p id="correctAnswer"></p>
+                <button id="nextRoundButton" class="share-button">Next Round →</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ for medical students</p>
+            <p class="hint">Tip: Each color shows how close your guess is to the answer!</p>
+        </footer>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="infinite-script.js"></script>
+</body>
+</html>
