@@ -36,8 +36,8 @@ header {
 }
 
 .main-logo {
-    width: 120px;
-    height: 120px;
+    width: 250px;
+    height: auto;
     margin-bottom: 20px;
     animation: float 3s ease-in-out infinite;
 }
@@ -60,7 +60,7 @@ h1 {
 
 .subtitle {
     font-size: 1.3rem;
-    color: #666;
+    color: #999;
     font-weight: 500;
 }
 
@@ -139,7 +139,7 @@ footer {
     margin-top: 40px;
     padding-top: 20px;
     border-top: 2px solid #eee;
-    color: #666;
+    color: #999;
 }
 
 .hint {
@@ -160,8 +160,8 @@ footer {
     }
 
     .main-logo {
-        width: 80px;
-        height: 80px;
+        width: 180px;
+        height: auto;
     }
 
     .game-modes {
